@@ -1,7 +1,5 @@
 # poly_schedule_parser
-these libs must be installed:
-requests
-argparse 
-matplotlib
-json
-datetime
+before running project, install prequesites:
+```bash
+python -m pip3 install -r requirements.txt
+```
