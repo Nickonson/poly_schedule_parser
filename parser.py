@@ -16,7 +16,7 @@ def init_groups_id():
     return groups
 
 
-def schedule_parser_init():
+def init_schedule_parser():
 
     parser = arg.ArgumentParser()
 
@@ -100,7 +100,7 @@ def show_week_histogramm(week_pairs, week_names):
 
 if __name__ == "__main__":
 
-    args = schedule_parser_init()
+    args = init_schedule_parser()
     groups_id = init_groups_id()
     base_url = 'https://ruz.spbstu.ru/api/v1/ruz/scheduler/'
 
