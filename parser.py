@@ -26,7 +26,7 @@ def init_schedule_parser():
     return parser.parse_args()
 
 
-def check_if_data_right(args, groups_id):
+def handle_data(args, groups_id):
 
     act_group = groups_id.get(args.group_id, -1)
     if (act_group == -1):
@@ -103,14 +103,12 @@ if __name__ == "__main__":
     args = init_schedule_parser()
     groups_id = init_groups_id()
     base_url = 'https://ruz.spbstu.ru/api/v1/ruz/scheduler/'
-
     week_names = {1: 'Monday', 2: 'Tuesday',
                   3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday'}
+    act_group, act_day = handle_data(args, groups_id)
 
-    act_group, act_day = check_if_data_right(args, groups_id)
     schedule_json = get_schedule_json(base_url, act_group, act_day)
-
     week_pairs = get_pairs_number(schedule_json)
-    print_week_data(schedule_json)
 
+    print_week_data(schedule_json)
     show_week_histogramm(week_pairs, week_names)
